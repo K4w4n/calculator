@@ -14,6 +14,8 @@ export const green = '#2ec973';
 
 export const greenDark = '#26a55e';
 
+export const greenLight = '#6effaf';
+
 export const red = '#f55860';
 
 export const redLight = '#f7eced';
@@ -32,6 +34,7 @@ const colors = {
     orangeLight,
     green,
     greenDark,
+    greenLight,
     red,
     redLight,
     gray,

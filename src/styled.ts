@@ -9,12 +9,20 @@ export const Calculator = styled.div`
 
 export const Display = styled.div`
     background-color: ${colors.white};
-    padding-bottom: 3rem;
+    height: 8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
     text-align: end;
+    border-bottom: 1px solid ${colors.grayLight};
 `;
 
-export const Calculation = styled.div`
+export const Calculation = styled.div<{
+    $hasResult: boolean,
+}>`
+    transition: font-size 100ms linear;
+    height: 2rem;
     padding-bottom: 1rem;
+    font-size: ${({ $hasResult }) => $hasResult ? '1.5rem' : '3rem'};
 `;
 
 export const FontOrange = styled.span`
@@ -27,8 +35,11 @@ export const FontGray = styled.span`
     color: ${colors.gray};
 `;
 
-export const Result = styled.div`
+export const Result = styled.div<{
+    $hasError: boolean,
+}>`
     font-size: 3rem;
+    color: ${({ $hasError }) => $hasError? colors.red : colors.grayDark};
 `;
 
 export const Buttons = styled.div`
@@ -41,22 +52,30 @@ export const Buttons = styled.div`
 
 export const Button = styled.button`
     transition: 150ms linear background-color;
-    cursor: pointer;
+    &:not(:disabled) {
+        cursor: pointer;
+    }
     background-color: ${colors.semiWhite};
     color: ${colors.gray};
     border-radius: 2.5rem;
     font-size: 2.5rem;
     font-weight: 400;
-    &:hover {
+    &:hover:not(:disabled) {
         background-color: ${colors.grayLight};
+    }
+    &:disabled {
+        background-color: ${colors.white};
     }
 `;
 
 export const ButtonOrange = styled(Button)`
     background-color: ${colors.orange};
     color: ${colors.white};
-    &:hover {
+    &:hover:not(:disabled) {
         background-color: ${colors.orangeDark};
+    }
+    &:disabled{
+        background-color: ${colors.orangeLight};
     }
 `;
 
@@ -64,15 +83,18 @@ export const ButtonOrange = styled(Button)`
 export const ButtonGreen = styled(Button)`
     background-color: ${colors.green};
     color: ${colors.white};
-    &:hover {
+    &:hover:not(:disabled) {
         background-color: ${colors.greenDark};
+    }
+    &:disabled{
+        background-color: ${colors.greenLight};
     }
 `;
 
 export const ButtonRed = styled(Button)`
     background-color: ${colors.redLight};
     color: ${colors.red};
-    &:hover {
+    &:hover:not(:disabled) {
         color: ${colors.redLight};
         background-color: ${colors.red};
     }
