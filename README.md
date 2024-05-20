@@ -22,5 +22,6 @@ Não se esqueça de dar uma olhada na lista de features que podem ser implementa
  - **Botão de apagar** - Embora o Botão **C** reset a calculadora para o estado inicial, seria interessante uma forma mais livre para apagar aquilo que foi previamente digitado, semelhante a tecla **backspace**.
  - **Digitar com o teclado**: Boa parte dos desenvolvedores não gostam de mouse, alguns se esforçam ao máximo para utilizar somente o teclado. Tendo em vista isso e a usabilidade essa feature seria muito interessante.
  - **Armazenar a conta atual na url da pagina**: Isso para que seja possível compartilhar o calculo com alguém através da url
+ - **Histórico de calculo**: Seria interessante listar os cálculos feitos anteriormente
 
 Se tratando de desenvolvimento de software as possibilidades são infinitas, espero que goste!
