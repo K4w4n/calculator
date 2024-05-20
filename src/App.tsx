@@ -1,6 +1,6 @@
 import { useCalculate } from './hooks/useCalculate';
 import { ICalculationItem } from './interfaces/calculation';
-import { Button, ButtonGreen, ButtonOrange, ButtonRed, ButtonZero, Calculator, Buttons, Display, Calculation, Result, FontOrange, FontGray } from './styled';
+import { Button, ButtonGreen, ButtonOrange, ButtonRed, ButtonZero, Calculator, Buttons, Display, Calculation, Result, FontOrange, FontGray, Menu, BackspaceIconStyled } from './styled';
 
 function App() {
 
@@ -11,6 +11,7 @@ function App() {
     handleOnClickOperation,
     handleOnClickEqual,
     handleOnClickPoint,
+    handleOnClickBackspace,
     calculation,
     result,
   } = useCalculate();
@@ -38,6 +39,10 @@ function App() {
           $hasError={result === 'error'} />
 
       </Display>
+
+      <Menu>
+        <BackspaceIconStyled onClick={handleOnClickBackspace} />
+      </Menu>
 
       <Buttons>
 

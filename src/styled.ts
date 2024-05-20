@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import colors from "./colors";
+import { ReactComponent as BackspaceIcon } from "./assets/img/svg/backspace.svg";
 
 export const Calculator = styled.div`
     background-color: ${colors.white};
@@ -9,11 +10,30 @@ export const Calculator = styled.div`
 
 export const Display = styled.div`
     background-color: ${colors.white};
-    height: 8rem;
+    height: 4rem;
     margin-bottom: 1.5rem;
     padding-bottom: 1.5rem;
     text-align: end;
-    border-bottom: 1px solid ${colors.grayLight};
+`;
+
+export const Menu = styled.div`
+     display: flex;
+     align-items: center;
+     justify-content: flex-end;
+     border-bottom: 1px solid ${colors.grayLight};
+     margin-bottom: 1rem;
+     padding: 1rem;
+`;
+
+export const BackspaceIconStyled = styled(BackspaceIcon)`
+    transition: background-color 100ms linear;
+    cursor: pointer;
+    width: 2rem;
+    padding: 1rem;
+    border-radius: 5rem;
+    &:hover {
+        background-color: ${colors.grayLight};
+    };
 `;
 
 export const Calculation = styled.div<{
@@ -39,7 +59,7 @@ export const Result = styled.div<{
     $hasError: boolean,
 }>`
     font-size: 3rem;
-    color: ${({ $hasError }) => $hasError? colors.red : colors.grayDark};
+    color: ${({ $hasError }) => $hasError ? colors.red : colors.grayDark};
 `;
 
 export const Buttons = styled.div`
