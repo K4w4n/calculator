@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import { parseStringToCalculation } from "../util/parseStringToCalculation";
 import { ICalculationItem } from "../interfaces/calculation";
 import * as mathjs from "mathjs";
+import { useExpression } from "./useExpression";
 
 export function useCalculate() {
 
-    const [stringCalculation, setStringCalculation] = useState<string>('');
+    const { expression, setExpression } = useExpression();
     const [result, setResult] = useState<string>();
-    const calculation: ICalculationItem[] = parseStringToCalculation(stringCalculation);
+    const calculation: ICalculationItem[] = parseStringToCalculation(expression);
 
     useEffect(() => {
 
@@ -40,30 +41,29 @@ export function useCalculate() {
     }
 
     function handleOnClickClear(_key: string) {
-        setStringCalculation('');
+        setExpression('');
         setResult(undefined);
     }
 
     function handleOnClickBackspace() {
-        setStringCalculation(stringCalculation.slice(0, -1));
+        setExpression(expression.slice(0, -1));
     }
 
     function handleOnClickParentheses(key: string) {
-        setStringCalculation(`${stringCalculation}${key}`);
+        setExpression(`${expression}${key}`);
     }
 
     function handleOnClickNumber(key: number) {
-        setStringCalculation(`${stringCalculation}${key}`);
+        setExpression(`${expression}${key}`);
     }
 
     function handleOnClickOperation(key: string) {
-        setStringCalculation(`${stringCalculation}${key.replace('*', 'x')}`);
+        setExpression(`${expression}${key.replace('*', 'x')}`);
     }
 
     function handleOnClickEqual(key: string) {
-        // eslint-disable-next-line no-eval
         try {
-            const result: number = mathjs.evaluate(stringCalculation.replaceAll('x', '*'));
+            const result: number = mathjs.evaluate(expression.replaceAll('x', '*'));
             setResult(isNaN(result) ? 'error' : result.toString());
         } catch (error) {
             setResult('error');
@@ -71,7 +71,7 @@ export function useCalculate() {
     }
 
     function handleOnClickPoint(_key: string) {
-        setStringCalculation(`${stringCalculation}.`);
+        setExpression(`${expression}.`);
     }
 
     return {
