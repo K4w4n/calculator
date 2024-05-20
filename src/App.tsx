@@ -1,7 +1,7 @@
 import { useCalculate } from './hooks/useCalculate';
 import { ICalculationItem } from './interfaces/calculation';
 import { Button, ButtonGreen, ButtonOrange, ButtonRed, ButtonZero, Calculator, Buttons, Display, Calculation, Result, FontOrange, FontGray, Menu, BackspaceIconStyled } from './styled';
-import { addPointInMilhar } from './util/addPointInMilhar';
+import { addThousandPoint } from './util/addThousandPoint';
 
 function App() {
 
@@ -36,7 +36,7 @@ function App() {
         </Calculation>
 
         <Result
-          children={addPointInMilhar(result)}
+          children={addThousandPoint(result)}
           $hasError={result === 'error'} />
 
       </Display>
