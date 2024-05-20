@@ -8,16 +8,20 @@ export function groupCharListByNumbers(charList: string[]): string[] {
         charList: string[]
     ) => {
 
-        const currentStringIsNumber = stringIsNumber(curr);
-        const previousStringIsNumber = stringIsNumber(charList[i - 1]);
-        const currIsDot = curr === '.';
-        const concatNumber = currentStringIsNumber && previousStringIsNumber;
+        const previous: string = charList[i - 1];
+        const currentIsNumber: boolean = stringIsNumber(curr);
+        const previousIsNumber: boolean = stringIsNumber(previous);
+        const currentIsDot: boolean = curr === ',';
+        const previousIsDot: boolean = previous === ',';
 
-        if (concatNumber || currIsDot) {
-            acc[acc.length - 1] += curr;
-        } else {
-            acc.push(curr);
-        }
+        const isNumber
+            = (previousIsNumber && currentIsNumber)
+            || (previousIsNumber && currentIsDot)
+            || (previousIsDot && currentIsNumber);
+
+        if (isNumber) acc[acc.length - 1] += curr;
+        else acc.push(curr);
+
         return acc;
     }, []);
 }
