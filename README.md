@@ -21,6 +21,5 @@ Não se esqueça de dar uma olhada na lista de features que podem ser implementa
  - **Responsividade** - Embora funcione muito bem no desktop este projeto **não é adaptado para o mobile**, mesmo assim nada te impede de implementar isso.
  - **Armazenar a conta atual na url da pagina**: Isso para que seja possível compartilhar o calculo com alguém através da url
  - **Histórico de calculo**: Seria interessante listar os cálculos feitos anteriormente
- - **Dividir casas de milhar**: Ao digitar números muito grandes seria interessante que eles fossem divididos por ponto
 
 Se tratando de desenvolvimento de software as possibilidades são infinitas, espero que goste!

@@ -1,6 +1,7 @@
 import { useCalculate } from './hooks/useCalculate';
 import { ICalculationItem } from './interfaces/calculation';
 import { Button, ButtonGreen, ButtonOrange, ButtonRed, ButtonZero, Calculator, Buttons, Display, Calculation, Result, FontOrange, FontGray, Menu, BackspaceIconStyled } from './styled';
+import { addPointInMilhar } from './util/addPointInMilhar';
 
 function App() {
 
@@ -35,7 +36,7 @@ function App() {
         </Calculation>
 
         <Result
-          children={result}
+          children={addPointInMilhar(result)}
           $hasError={result === 'error'} />
 
       </Display>
@@ -109,8 +110,8 @@ function App() {
           onClick={() => handleOnClickNumber(0)} />
 
         <Button
-          children='.'
-          onClick={() => handleOnClickPoint('.')} />
+          children=','
+          onClick={() => handleOnClickPoint(',')} />
 
         <ButtonGreen
           children='='
